@@ -17,7 +17,7 @@ while IFS="" read -r p || [ -n "$p" ]; do
     fi
     xdotool type "/ban $p"
     xdotool key Return
-    sleep 0.2
+    sleep 1
     if twitchBannedCount == 50; then
       sleep(5) //idk how much
       echo "I slept for 10 ms"
