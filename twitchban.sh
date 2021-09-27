@@ -24,5 +24,5 @@ while IFS="" read -r p || [ -n "$p" ]; do
       twitchBannedCount = 0
     fi
 
-twitchBannedCount++
+((twitchBannedCount+=1))
 done < "$SOURCE"
