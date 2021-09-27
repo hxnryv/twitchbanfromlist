@@ -1,9 +1,10 @@
 #!/bin/bash
 
 SOURCE="$(dirname ${BASH_SOURCE[0]})/banlist.txt"
+declare -i twitchBannedCount=0 
 
 echo -n "Starting in 5 seconds..."
-for i in `seq 5`; do
+for i in seq 5; do
     sleep 1
     echo -n .
 done
@@ -17,4 +18,10 @@ while IFS="" read -r p || [ -n "$p" ]; do
     xdotool type "/ban $p"
     xdotool key Return
     sleep 0.2
+    if twitchBannedCount == 20; then
+      sleep(10) //idk how much
+      twitchBannedCount = 0
+    fi
+
+twitchBannedCount++
 done < "$SOURCE"
